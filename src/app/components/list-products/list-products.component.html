@@ -1,0 +1,20 @@
+<div>
+    <div *ngFor="let f of products" class="form-group container card m-4 p-3">
+        <h1 class="form-control">
+            {{f.Nombre}}
+        </h1>
+        <p class="form-control">
+            {{f.Description}}
+        </p>
+        <h3 class="form-control">
+            $ {{f.Precio}}
+        </h3>
+        <div>
+            <a class="btn btn-warning" [routerLink]="['/product/update',f.Id]">Edit</a> |
+            <button class="btn btn-danger" (click)="delete(f.Id)">Delete</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="products == null" class="form-group card container p-5">
+   <h1>No hay datos para mostrar</h1>
+</div>
